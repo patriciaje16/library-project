@@ -16,7 +16,7 @@ public class Intro {
         optionSelected = scanner.nextInt();
 
         if (optionSelected == 1) {
-            // proceed with login
+            User.logIn();
             System.out.println("Login in progress\n");
         } else if (optionSelected == 2) {
             User.register();

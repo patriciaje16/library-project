@@ -1,6 +1,8 @@
 package com.nology.user;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class User {
@@ -49,35 +51,60 @@ public class User {
     static User user = new User();
 
     public static void register () {
-        ArrayList<String> userList=new ArrayList<>();
+        List<User> userList=new ArrayList<>();
+        String [] memberDetails = new String[0];
 
         Scanner scanner = new Scanner(System.in);
         System.out.print(" Enter Name => ");
         String name = scanner.nextLine();
-        user.setName(name);
 
         System.out.print(" Enter userName => ");
         String userName = scanner.nextLine();
-        user.setUsername(userName);
 
         System.out.print(" Enter password => ");
         String password = scanner.nextLine();
-        user.setPassword(password);
 
-        String newUser = name +" "+ userName +" "+ password;
+        User newUser = new User (name, userName, password);
+
 
         userList.add(newUser);
 
 
-
         System.out.println("Registration successful");
-
+        System.out.println(newUser);
 
 
     }
 
     public static void logIn() {
+    Scanner scanner = new Scanner(System.in);
+        User user = new User();
 
+        System.out.println("Enter user name => ");
+        String loggedUserName = scanner.nextLine();
+
+        System.out.println("Enter password => ");
+        String loggedPassword = scanner.nextLine();
+
+        if(loggedUserName.equals(user.getUserName()) && loggedPassword.equals(user.getUserName()))  {
+            System.out.println(" User successfully logged-in.. ");
+        } else {
+            System.out.println(" In valid userName of password ");
+        }
+
+    }
+    @Override
+    public String toString(){
+        return "User{" +
+                "name= " + name +
+                ", username= " + userName+
+                ", password= " + password +
+                "}";
+    }
+
+    public static void main(String[] args) {
+        register();
+        System.out.println(getUser());
 
     }
 

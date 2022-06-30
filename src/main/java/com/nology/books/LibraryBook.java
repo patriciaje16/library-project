@@ -56,14 +56,13 @@ public class LibraryBook {
     public static List readBooksData() throws IOException {
         List<LibraryBook> booksList = new ArrayList<>();
 
-
-        // Read json data file and store it in a string
         String path = "/Users/patriciaedwards/Desktop/madagascar/LibraryProject/src/main/java/com/nology/book/data/books_data.csv";
         String line = "";
         String[] CSVarray = new String[0];
 
         BufferedReader br = new BufferedReader(new FileReader(path));
         while ((line = br.readLine()) != null) {
+
             CSVarray = line.split(",");
             String number = CSVarray[0];
             String title = CSVarray[1];
